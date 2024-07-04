@@ -3,6 +3,11 @@
 $ nest generate library common
 ```
 
+**Creating a new Module at common project**
+```bash
+$ nest generate module database -p common
+```
+
 ## Description
 
 This backend application facilitates property reservations, offering functionalities similar to Airbnb. It manages user
