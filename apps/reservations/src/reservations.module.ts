@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
-import { ReservationsService } from './reservations.service'
-import { ReservationsController } from './reservations.controller'
+import { ReservationsService } from './reservations/services/reservations.service'
+import { ReservationsController } from './reservations/controllers/reservations.controller'
 import { ReservationRepository } from './reservations/repositories/reservation.repository'
 import { DatabaseModule } from '@app/common/database/database.module'
 import {
