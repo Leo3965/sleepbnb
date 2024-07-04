@@ -2,28 +2,38 @@ import { Injectable } from '@nestjs/common'
 import { CreateReservationDto } from '../dto/create-reservation.dto'
 import { UpdateReservationDto } from '../dto/update-reservation.dto'
 import { ReservationRepository } from '../repositories/reservation.repository'
+import { ReservationDocument } from '../schema/reservation.schema'
 
 @Injectable()
 export class ReservationsService {
   constructor(private readonly repository: ReservationRepository) {}
 
-  create(createReservationDto: CreateReservationDto) {
-    return 'This action adds a new reservation'
+  async create(
+    createReservationDto: CreateReservationDto
+  ): Promise<ReservationDocument> {
+    return await this.repository.create({
+      userId: '',
+      ...createReservationDto,
+      timestamp: new Date()
+    })
   }
 
-  findAll() {
-    return `This action returns all reservations!`
+  async findAll() {
+    return await this.repository.find({})
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} reservation`
+  async findOne(id: string) {
+    return await this.repository.find({ _id: id })
   }
 
-  update(id: number, updateReservationDto: UpdateReservationDto) {
-    return `This action updates a #${id} reservation`
+  async update(id: string, updateReservationDto: UpdateReservationDto) {
+    return await this.repository.update(
+      { _id: id },
+      { $set: updateReservationDto }
+    )
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} reservation`
+  async remove(id: string) {
+    await this.repository.delete({ _id: id })
   }
 }
