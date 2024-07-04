@@ -1,9 +1,12 @@
 import { Injectable } from '@nestjs/common'
 import { CreateReservationDto } from '../dto/create-reservation.dto'
 import { UpdateReservationDto } from '../dto/update-reservation.dto'
+import { ReservationRepository } from '../repositories/reservation.repository'
 
 @Injectable()
 export class ReservationsService {
+  constructor(private readonly repository: ReservationRepository) {}
+
   create(createReservationDto: CreateReservationDto) {
     return 'This action adds a new reservation'
   }
