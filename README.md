@@ -1,10 +1,9 @@
+## Mono Repo
+```bash
+$ nest generate library common
+```
+
 ## Description
-
-Sure! Here's a brief description of a backend app for making reservations similar to Airbnb:
-
----
-
-**Description:**
 
 This backend application facilitates property reservations, offering functionalities similar to Airbnb. It manages user
 authentication, property listings, bookings, payments, and reviews.
