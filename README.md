@@ -3,9 +3,19 @@
 $ nest generate library common
 ```
 
-**Creating a new Module at common project**
+**creating a new app (service) inside mono repo**
+```bash
+$ nest g app reservations
+```
+
+**creating a new module at common project**
 ```bash
 $ nest generate module database -p common
+```
+
+**creating a new resource (REST, GraphQL)**
+```bash
+$ nest g resource reservations
 ```
 
 ## Description
