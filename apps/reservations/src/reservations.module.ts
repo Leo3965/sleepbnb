@@ -7,13 +7,15 @@ import {
   ReservationDocument,
   ReservationSchema
 } from './reservations/schema/reservation.schema'
+import { LoggerModule } from '@app/common/logger/logger.module'
 
 @Module({
   imports: [
     DatabaseModule,
     DatabaseModule.forFeature([
       { name: ReservationDocument.name, schema: ReservationSchema }
-    ])
+    ]),
+    LoggerModule
   ],
   controllers: [ReservationsController],
   providers: [ReservationsService, ReservationRepository] // inject in services
