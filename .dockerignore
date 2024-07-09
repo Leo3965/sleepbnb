@@ -1,10 +1,2 @@
-dist
 node_modules
-.git
-.idea
-
-.gitignore
-
-/dist
-/node_modules
-/build
+dist
