@@ -11,6 +11,7 @@ import { Reflector } from '@nestjs/core';
 import { catchError, map, Observable, of, tap } from 'rxjs';
 import { AUTH_SERVICE } from '../constants/services';
 import { UserDto } from '../dto';
+import { AUTHENTICATE } from '@app/common/patterns/message-patterns';
 
 @Injectable()
 export class JwtAuthGuard implements CanActivate {
@@ -35,7 +36,7 @@ export class JwtAuthGuard implements CanActivate {
     const roles = this.reflector.get<string[]>('roles', context.getHandler());
 
     return this.authClient
-      .send<UserDto>('authenticate', {
+      .send<UserDto>(AUTHENTICATE, {
         Authentication: jwt,
       })
       .pipe(

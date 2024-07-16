@@ -5,6 +5,7 @@ import { UpdateReservationDto } from './dto/update-reservation.dto';
 import { ReservationsRepository } from './reservations.repository';
 import { ClientProxy } from '@nestjs/microservices';
 import { map } from 'rxjs';
+import { CREATE_CHARGE } from '@app/common/patterns/message-patterns';
 
 @Injectable()
 export class ReservationsService {
@@ -18,7 +19,7 @@ export class ReservationsService {
     { email, _id: userId }: UserDto,
   ) {
     return this.paymentsService
-      .send('create_charge', {
+      .send(CREATE_CHARGE, {
         ...createReservationDto.charge,
         email,
       })

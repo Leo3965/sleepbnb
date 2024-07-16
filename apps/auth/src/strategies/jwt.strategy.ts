@@ -22,6 +22,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
+  // Por que é salvo no request a variável com nome de user para o resultado dessa função
   async validate({ userId }: TokenPayload) {
     return this.usersService.getUser({ _id: userId });
   }
