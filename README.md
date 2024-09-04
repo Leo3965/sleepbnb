@@ -83,3 +83,8 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+### CLI commands used on the project
+1. nest new sleepbnb
+2. nest generate library common
+3. nest generate module database -p common
+4. nest generate module config -p common
