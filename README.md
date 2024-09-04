@@ -89,3 +89,4 @@ $ npm run test:cov
 3. nest generate module database -p common
 4. nest generate module config -p common
 5. nest g app reservations
+6. nest g resource reservations
